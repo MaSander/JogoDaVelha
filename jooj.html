@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>velhaaaa</title>
+</head>
+
+<body>
+
+    <section>
+        <div id="PlayerX">X <p id="PlayerXVitorias"></p>
+        </div>
+        <div id="PlayerO">O <p id="PlayerOVitorias"></p>
+        </div>
+    </section>
+
+    <Section>
+        <button class="btn" id="0" onclick="campo(0)"></button>
+        <button class="btn" id="3" onclick="campo(3)"></button>
+        <button class="btn" id="6" onclick="campo(6)"></button>
+    </Section>
+
+    <Section>
+        <button class="btn" id="1" onclick="campo(1)"></button>
+        <button class="btn" id="4" onclick="campo(4)"></button>
+        <button class="btn" id="7" onclick="campo(7)"></button>
+    </Section>
+
+    <Section>
+        <button class="btn" id="2" onclick="campo(2)"></button>
+        <button class="btn" id="5" onclick="campo(5)"></button>
+        <button class="btn" id="8" onclick="campo(8)"></button>
+    </Section>
+</body>
+
+</html>
+
+<style>
+    button {
+        height: 100px;
+        width: 100px;
+        background-color: none;
+        border: none;
+    }
+</style>
+
+<script>
+    playerX = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+    playerO = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+    campos = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+    juiz = 0;
+
+    function campo(location) {
+
+        //Seleção de campo
+        if (juiz == 0) {
+            if (campos[location] == 0) {
+                playerX[location] = 1;
+                campos[location] = 1;
+                juiz = 1;
+                document.getElementById(location).innerHTML = "X";
+            } else {
+                alert("Campo já selecionado")
+            }
+        } else {
+            if (campos[location] == 0) {
+                playerO[location] = 1;
+                campos[location] = 1;
+                juiz = 0;
+                document.getElementById(location).innerHTML = "Y";
+            } else {
+                alert("Campo já selecionado");
+            }
+        }
+
+        //Avaliação
+
+        switch (playerX) {
+            case "1,1,1,0,0,0,0,0,0": alert("Player X win!!!"); break;
+            case "0,0,0,1,1,1,0,0,0": alert("Player X win!!!"); break;
+            case "0,0,0,0,0,0,1,1,1": alert("Player X win!!!"); break;
+            case "1,0,0,1,0,0,1,0,0": alert("Player X win!!!"); break;
+            case "0,1,0,0,1,0,0,1,0": alert("Player X win!!!"); break;
+            case "0,0,1,0,0,1,0,0,1": alert("Player X win!!!"); break;
+            case "1,0,0,0,1,0,0,0,1": alert("Player X win!!!"); break;
+            case "0,0,1,0,1,0,1,0,0": alert("Player X win!!!"); break;
+        }
+
+        console.log(campos);
+
+        //limpeza de jogo
+        if (campos == "1,1,1,1,1,1,1,1,1") {
+            playerX = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+            playerO = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+            campos = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+            juiz = 0;
+            document.getElementsByClassName("btn").document = '.';
+        }
+
+
+        // if(playerX == [1, 1, 1, 0, 0, 0, 0, 0, 0]){
+        //     alert("Player X win!!!")
+        // }if else(playerX )
+
+    }
+</script>
+
+
+<!-- 
+[1, 1, 1, 0, 0, 0, 0, 0, 0]
+
+[0, 0, 0, 1, 1, 1, 0, 0, 0]
+
+[0, 0, 0, 0, 0, 0, 1, 1, 1]
+
+[1, 0, 0, 1, 0, 0, 1, 0, 0]
+
+[0, 1, 0, 0, 1, 0, 0, 1, 0]
+
+[0, 0, 1, 0, 0, 1, 0, 0, 1]
+
+[1, 0, 0, 0, 1, 0, 0, 0, 1]
+
+[0, 0, 1, 0, 1, 0, 1, 0, 0]
+ -->

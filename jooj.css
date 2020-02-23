@@ -1,0 +1,42 @@
+*{
+    padding: 0;
+}
+
+body {
+    background-color: #0e96d4;
+    color: blanchedalmond;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+button {
+    height: 200px;
+    width: 200px;
+    background-color: none;
+    border: none;
+    border-radius: 10px;
+}
+
+#placar {
+    background-color: #262626;
+    border-radius: 10px;
+    display: flex;
+    padding: 50px;
+    justify-content: space-between;
+}
+
+.player {
+    display: flex;
+    padding: 10px;
+    width: 20px;
+}
+
+#indicadorRodada{
+    padding: 10px;
+}
+
+#tabuleiro{
+    margin-top: 40px;
+}

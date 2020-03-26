@@ -13,6 +13,7 @@ function campo(location) {
             document.getElementById(location).innerHTML = "X";
             document.getElementById(location).style.cursor = "not-allowed"
             document.getElementById(location).style.backgroundColor = "#E50592"
+            document.getElementById("indicadorRodada").innerHTML = "Rodade de: O";
         } else {
             alert("Campo já selecionado")
         }
@@ -23,13 +24,12 @@ function campo(location) {
             document.getElementById(location).innerHTML = "O";
             document.getElementById(location).style.cursor = "not-allowed"
             document.getElementById(location).style.backgroundColor = "#FFF106"
+            document.getElementById("indicadorRodada").innerHTML = "Rodade de: X";
         } else {
             alert("Campo já selecionado");
         }
     }
-
     avaliacao();
-
 }
 
 function avaliacao() {
@@ -83,26 +83,42 @@ function avaliacao() {
     if (campos[2] == "O" & campos[4] == "O" & campos[6] === "O") {
         ganhador("O");
     }
-}
-
-function ganhador(event){
-    if(event == "X"){
-        jogadorX++;
+    //Velha
+    var contador = 0;
+    campos.forEach(element => {
+        if (element != "") {
+            contador++;
+        }
+    });
+    if (contador == 9) {
+        alert("Velha")
         campos = [0, 0, 0, 0, 0, 0, 0, 0, 0];
-        document.getElementById("PlayerXVitorias").innerHTML = jogadorX
-        alert("Jogarodor X pontuou");
-        for(var i = 0; i <= 9; i++){
+        for (var i = 0; i <= 9; i++) {
             document.getElementById(i).innerHTML = ""
             document.getElementById(i).style.cursor = "pointer"
             document.getElementById(i).style.backgroundColor = "#FFF"
         }
     }
-    if(event == "O"){
+}
+
+function ganhador(event) {
+    if (event == "X") {
+        jogadorX++;
+        campos = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+        document.getElementById("PlayerXVitorias").innerHTML = jogadorX
+        alert("Jogarodor X pontuou");
+        for (var i = 0; i <= 9; i++) {
+            document.getElementById(i).innerHTML = ""
+            document.getElementById(i).style.cursor = "pointer"
+            document.getElementById(i).style.backgroundColor = "#FFF"
+        }
+    }
+    if (event == "O") {
         jogadorO++;
         campos = [0, 0, 0, 0, 0, 0, 0, 0, 0];
         document.getElementById("PlayerOVitorias").innerHTML = jogadorO
         alert("Jogador O pontuou");
-        for(var i = 0; i <= 9; i++){
+        for (var i = 0; i <= 9; i++) {
             document.getElementById(i).innerHTML = ""
             document.getElementById(i).style.cursor = "pointer"
             document.getElementById(i).style.backgroundColor = "#FFF"

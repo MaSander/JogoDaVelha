@@ -1,9 +1,9 @@
 campos = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 juiz = 0;
+jogadorX = 0;
+jogadorO = 0;
 
 function campo(location) {
-    jogadorX = 0;
-    jogadorO = 0;
 
     //Seleção de campo
     if (juiz == 0) {
@@ -11,6 +11,7 @@ function campo(location) {
             campos[location] = 'X';
             juiz = 1;
             document.getElementById(location).innerHTML = "X";
+            document.getElementById(location).style.cursor = "not-allowed"
         } else {
             alert("Campo já selecionado")
         }
@@ -19,12 +20,11 @@ function campo(location) {
             campos[location] = "O";
             juiz = 0;
             document.getElementById(location).innerHTML = "O";
+            document.getElementById(location).style.cursor = "not-allowed"
         } else {
             alert("Campo já selecionado");
         }
     }
-
-    console.log(campos);
 
     avaliacao();
 
@@ -89,11 +89,17 @@ function ganhador(event){
         campos = [0, 0, 0, 0, 0, 0, 0, 0, 0];
         document.getElementById("PlayerXVitorias").innerHTML = jogadorX
         alert("Jogarodor X pontuou");
+        for(var i = 0; i < 8; i++){
+            document.getElementById(i).innerHTML = ""
+        }
     }
     if(event == "O"){
         jogadorO++;
         campos = [0, 0, 0, 0, 0, 0, 0, 0, 0];
         document.getElementById("PlayerOVitorias").innerHTML = jogadorO
         alert("Jogador O pontuou");
+        for(var i = 0; i < 8; i++){
+            document.getElementById(i).innerHTML = ""
+        }
     }
 }

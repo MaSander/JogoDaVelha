@@ -17,13 +17,15 @@ button {
     border: none;
     border-radius: 10px;
     cursor: pointer;
+    margin: 1px;
 }
+
 
 #placar {
     background-color: #262626;
     border-radius: 10px;
     display: flex;
-    padding: 50px;
+    padding: 30px;
     justify-content: space-between;
 }
 
@@ -38,5 +40,5 @@ button {
 }
 
 #tabuleiro{
-    margin-top: 40px;
+    margin-top: 30px;
 }

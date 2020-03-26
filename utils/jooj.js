@@ -12,6 +12,7 @@ function campo(location) {
             juiz = 1;
             document.getElementById(location).innerHTML = "X";
             document.getElementById(location).style.cursor = "not-allowed"
+            document.getElementById(location).style.backgroundColor = "#E50592"
         } else {
             alert("Campo já selecionado")
         }
@@ -21,6 +22,7 @@ function campo(location) {
             juiz = 0;
             document.getElementById(location).innerHTML = "O";
             document.getElementById(location).style.cursor = "not-allowed"
+            document.getElementById(location).style.backgroundColor = "#FFF106"
         } else {
             alert("Campo já selecionado");
         }
@@ -89,8 +91,10 @@ function ganhador(event){
         campos = [0, 0, 0, 0, 0, 0, 0, 0, 0];
         document.getElementById("PlayerXVitorias").innerHTML = jogadorX
         alert("Jogarodor X pontuou");
-        for(var i = 0; i < 8; i++){
+        for(var i = 0; i <= 9; i++){
             document.getElementById(i).innerHTML = ""
+            document.getElementById(i).style.cursor = "pointer"
+            document.getElementById(i).style.backgroundColor = "#FFF"
         }
     }
     if(event == "O"){
@@ -98,8 +102,10 @@ function ganhador(event){
         campos = [0, 0, 0, 0, 0, 0, 0, 0, 0];
         document.getElementById("PlayerOVitorias").innerHTML = jogadorO
         alert("Jogador O pontuou");
-        for(var i = 0; i < 8; i++){
+        for(var i = 0; i <= 9; i++){
             document.getElementById(i).innerHTML = ""
+            document.getElementById(i).style.cursor = "pointer"
+            document.getElementById(i).style.backgroundColor = "#FFF"
         }
     }
 }
